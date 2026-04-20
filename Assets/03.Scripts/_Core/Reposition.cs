@@ -1,8 +1,15 @@
+using NUnit.Framework.Constraints;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class Reposition : MonoBehaviour
 {
+    Collider2D coll;
+
+    void Awake()
+    {
+        coll = GetComponent<Collider2D>();
+    }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (!collision.CompareTag("Area"))
@@ -30,7 +37,10 @@ public class Reposition : MonoBehaviour
                 }
                 break;
             case "Enemy":
-
+                if (coll.enabled)
+                {
+                    transform.Translate(GameManager.instance.plr.moveDir * 20 + new Vector2(UnityEngine.Random.Range(-3f,3f), UnityEngine.Random.Range(-3f,3f)));
+                }
                 break;
         }
     }

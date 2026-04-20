@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    float speed;
+    float speed = 1.5f;
     public Rigidbody2D target;
 
-    bool isLive;
+    bool isLive = true;
 
     Rigidbody2D rigid;
     SpriteRenderer spriter;
