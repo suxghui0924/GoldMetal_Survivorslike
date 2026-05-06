@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -51,5 +52,23 @@ public class Enemy : MonoBehaviour
         speed = data.speed;
         maxHealth = data.health;
         health = data.health;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other != null && !other.CompareTag("Bullet")) return;
+        health -= other.GetComponent<Bullet>().damage;
+        if (health > 0)
+        {
+        }
+        else
+        {
+            Dead();
+        }
+    }
+
+    private void Dead()
+    {
+        gameObject.SetActive(false);
     }
 }

@@ -1,3 +1,4 @@
+using _03.Scripts.Enemy;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -5,7 +6,8 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float walkSpeed = 2.5f;
     public Vector2 moveDir;
-
+    public Scanner scanner;
+    
     SpriteRenderer spriteRenderer;
     Rigidbody2D rigid;
     Animator anim;
@@ -15,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        scanner = GetComponent<Scanner>();
     }
     private void FixedUpdate()
     {
