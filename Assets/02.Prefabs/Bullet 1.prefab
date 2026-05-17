@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8036006132833602510}
   - component: {fileID: 8203268863856395419}
   - component: {fileID: 5476160411767722216}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bullet 1
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
-  per: 0
+  per: 2
 --- !u!212 &8036006132833602510
 SpriteRenderer:
   m_ObjectHideFlags: 0
