@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -8,6 +9,9 @@ public class GameManager : MonoBehaviour
 
     public int level;
 
+
+    public int health;
+    public int maxHealth= 100;
     public int kill;
     public int exp;
     public int[] nextExp = { 10, 30, 60, 100, 150, 210, 280, 360, 450, 600 };
@@ -18,6 +22,11 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         instance = this;
+    }
+
+    private void Start()
+    {
+        health = maxHealth;
     }
 
     void Update()
@@ -34,5 +43,9 @@ public class GameManager : MonoBehaviour
         exp++;
         
         if(exp == nextExp[level])
+        {
+            level++;
+            exp = 0;
+        }
     }
 }

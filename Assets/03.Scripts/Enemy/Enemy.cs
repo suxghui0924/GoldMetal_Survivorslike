@@ -65,7 +65,7 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other != null && !other.CompareTag("Bullet")) return;
+        if (other != null && !other.CompareTag("Bullet") || !isLive) return;
         health -= other.GetComponent<Bullet>().damage;
         StartCoroutine(Knockback());
         if (health > 0)
@@ -92,6 +92,8 @@ public class Enemy : MonoBehaviour
         
     private void Dead()
     {
+        GameManager.instance.kill++;
+        GameManager.instance.GetExp();
         gameObject.SetActive(false);
     }
 }
